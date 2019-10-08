@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { auth } from "../../firebase/firebase.utils";
+import CartIcon from "../cart-icon/cart-icon.component";
+import CartDropdown from "../cart-dropdown/cart-dropdown.component";
 
 const Header = ({ currentUser }) => {
   return (
@@ -19,15 +21,17 @@ const Header = ({ currentUser }) => {
           CONTACT
         </Link>
         {currentUser ? (
-          <div className="options" onClick={() => auth.signOut()}>
+          <div className="option" onClick={() => auth.signOut()}>
             SIGN OUT
           </div>
         ) : (
-          <Link to="/signin" className="options">
+          <Link to="/signin" className="option">
             SIGN IN
           </Link>
         )}
+        <CartIcon />
       </div>
+      <CartDropdown />
     </div>
   );
 };

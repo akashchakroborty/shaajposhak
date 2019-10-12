@@ -13,6 +13,15 @@ export const MenuItemContainer = styled.div`
 
   &:hover {
     cursor: pointer;
+
+    .image {
+      transform: scale(1.1);
+      transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+    }
+
+    .container {
+      opacity: 0.9;
+    }
   }
 
   &:first-child {
@@ -30,11 +39,6 @@ export const BackgroundImageContainer = styled.div`
   background-size: cover;
   background-position: center;
   background-image: ${({ imageUrl }) => `url(${imageUrl})`};
-
-  &:hover {
-    transform: scale(1.1);
-    transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
-  }
 `;
 
 export const ContentContainer = styled.div`
@@ -48,10 +52,6 @@ export const ContentContainer = styled.div`
   background-color: white;
   opacity: 0.7;
   position: absolute;
-
-  &:hover {
-    opacity: 0.9;
-  }
 `;
 
 export const TitleStyle = styled.div`

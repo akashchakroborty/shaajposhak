@@ -1,5 +1,9 @@
 import React from "react";
-import "./collection.styles.scss";
+import {
+  CollectionItemsContainer,
+  CollectionPageContainer,
+  CollectionTitle
+} from "./collection.styles";
 import CollectionItem from "../../components/collection-item/collection-item.component";
 import { connect } from "react-redux";
 import { selectShopCollection } from "../../redux/shop/shop.selector";
@@ -7,14 +11,14 @@ import { selectShopCollection } from "../../redux/shop/shop.selector";
 const CollectionPage = ({ collection }) => {
   const { title, items } = collection;
   return (
-    <div className="collection-page">
-      <h2 className="title">{title}</h2>
-      <div className="items">
+    <CollectionPageContainer>
+      <CollectionTitle>{title}</CollectionTitle>
+      <CollectionItemsContainer>
         {items.map(item => (
           <CollectionItem key={item.id} item={item} />
         ))}
-      </div>
-    </div>
+      </CollectionItemsContainer>
+    </CollectionPageContainer>
   );
 };
 

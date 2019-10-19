@@ -26,12 +26,15 @@ class SignIn extends Component {
       type: UserActionTypes.EMAIL_SIGN_IN_START,
       payload: { email, password }
     });
+    this.setState({
+      email: "",
+      password: ""
+    });
   };
 
   handleChange = event => {
     event.preventDefault();
     const { value, name } = event.target;
-
     this.setState({ [name]: value });
   };
 

@@ -31,4 +31,4 @@ class ShopPage extends Component {
   }
 }
 
-export default connect(null)(ShopPage);
+export default connect()(ShopPage);

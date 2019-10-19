@@ -10,9 +10,17 @@ import Header from "./components/header/header.component";
 import Checkout from "./pages/checkout/checkout.component";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
 import { createStructuredSelector } from "reselect";
+import UserActionTypes from "./redux/user/user.types";
 import { selectCurrentUser } from "./redux/user/user.selector";
 
 class App extends Component {
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch({
+      type: UserActionTypes.CHECK_USER_SESSION
+    });
+  }
+
   render() {
     return (
       <div>

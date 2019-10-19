@@ -1,6 +1,8 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
+import { resolve } from "dns";
+import { reject } from "q";
 
 const config = {
   apiKey: "AIzaSyCPVNckaGe-2r5CKjJod_N-kYIrlHRXxRU",
@@ -69,6 +71,15 @@ export const addCollectionAndDocuments = async (collectionKey, objectToAdd) => {
     batch.set(newDocRef, obj);
   });
   return await batch.commit();
+};
+
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = auth.onAuthStateChanged(userAuth => {
+      unsubscribe();
+      resolve(userAuth);
+    }, reject);
+  });
 };
 
 export const googleProvider = new firebase.auth.GoogleAuthProvider();

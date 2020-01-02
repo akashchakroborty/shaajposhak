@@ -2,7 +2,7 @@ import React, { useEffect, lazy, Suspense } from "react";
 import { connect } from "react-redux";
 import { Switch, Route, Redirect } from "react-router-dom";
 
-import "./App.css";
+import { GlobalStyle } from "./global.styles";
 
 import Header from "./components/header/header.component";
 import Spinner from "./components/spinner/spinner.component";
@@ -27,6 +27,7 @@ const App = ({ dispatch, currentUser }) => {
 
   return (
     <div>
+      <GlobalStyle />
       <Header />
       <Switch>
         <ErrorBoundary>

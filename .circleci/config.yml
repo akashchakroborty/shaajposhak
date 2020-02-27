@@ -6,9 +6,7 @@ jobs:
     steps:
       - checkout
       - run: echo "npm installing"
-      - run: npm install
-      - run: npm i react-scripts
-      - run: CI=true npm run build
+      - run: npm run heroku-postbuild
   test:
     docker:
       - image: circleci/node:8.16.2
